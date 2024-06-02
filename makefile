@@ -10,8 +10,8 @@ SRC = src/*.cc src/food/*.cc src/snake/*.cc
 INC = -Iinc
 LIB = -Llib -lraylibdll -lopengl32 -lgdi32 -lwinmm
 
-BIN_REL = bin/PongGame.exe
-BIN_DBG = bin/PongGame-Debug.exe
+BIN_REL = bin/SnakeGame.exe
+BIN_DBG = bin/SnakeGame-Debug.exe
 
 PCH = src/global.hh.pch
 CH = src/global.hh
