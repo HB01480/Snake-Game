@@ -13,6 +13,7 @@
 #define TILE_COUNT_Y 16
 #define SC_WIDTH TILE_SIZE * TILE_COUNT_X
 #define SC_HEIGHT TILE_SIZE * TILE_COUNT_Y
+#define TILE_AREA TILE_COUNT_X * TILE_COUNT_Y
 
 // Gameplay
 // Direction
