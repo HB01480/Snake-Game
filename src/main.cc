@@ -1,5 +1,7 @@
 #include "global.hh"
 
+#include "food/food.hh"
+
 
 int main() {
     // Initialization
@@ -7,7 +9,7 @@ int main() {
     SetWindowState(FLAG_VSYNC_HINT);
 
     // Game initialization
-
+    Food food{3, 5, FOOD_COLOR};
 
     // Game loop
     while (!WindowShouldClose()) {
@@ -18,7 +20,8 @@ int main() {
         BeginDrawing();
 
         ClearBackground(BG_COLOR);
-        
+        food.draw();
+
         EndDrawing();
 
     }
