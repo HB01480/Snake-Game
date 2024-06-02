@@ -13,6 +13,10 @@ bool canEat(Snake snake, Food food) {
 
 i32 main() {
     // Initialization
+    SetTraceLogLevel(LOG_DEBUG); // To get DEBUG and higher leveled logs
+    #ifdef SG_RELEASE
+    SetTraceLogLevel(LOG_ERROR); // To get rid of INFO
+    #endif
     InitWindow(SC_WIDTH, SC_HEIGHT, TITLE);
     SetWindowState(FLAG_VSYNC_HINT);
     f32 fixedUpdateTimer = 0;
@@ -42,6 +46,13 @@ i32 main() {
             while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
                 food.reset();
         }
+        #ifdef SG_DEBUG
+        if (IsKeyDown(KEY_LEFT_SHIFT)) {
+            TraceLog(LOG_DEBUG, "Food: %.0f %.0f", food.getPosition().x, food.getPosition().y);
+            TraceLog(LOG_DEBUG, "Snake head position: %.0f %.0f", snake.getHeadPosition().x, snake.getHeadPosition().y);
+            TraceLog(LOG_DEBUG, "Snake length: %i", snake.getSize());
+        }
+        #endif
 
         // Fixed updating
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
