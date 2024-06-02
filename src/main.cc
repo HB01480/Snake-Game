@@ -29,19 +29,22 @@ i32 main() {
         // Updating
         fixedUpdateTimer += dt;
         snake.input();
+
         // Checks if can exit
         if (canExitGame(snake))
             break;
 
+        // Checks if snake can eat food
         if (canEat(snake, food)) {
             snake.addBodySegment();
-
+    
+            // Make sure that food doesn't spawn on snake
             while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
                 food.reset();
         }
 
+        // Fixed updating
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
-            // Fixed updating
             snake.fixedMove();
 
             fixedUpdateTimer = 0;
@@ -52,6 +55,7 @@ i32 main() {
         BeginDrawing();
 
         ClearBackground(BG_COLOR);
+        
         food.draw();
         snake.draw();
 
