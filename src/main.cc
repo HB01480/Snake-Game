@@ -22,6 +22,13 @@ int main() {
         // Updating
         fixedUpdateTimer += dt;
         snake.update();
+        if (snake.isInBody(food.getPosition())) {
+            snake.addBodySegment();
+            food.reset();
+            if (snake.isInBody(food.getPosition()))
+                food.reset();
+        }
+
 
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
             // Fixed updating

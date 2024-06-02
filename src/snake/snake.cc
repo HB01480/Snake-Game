@@ -6,7 +6,16 @@
 Snake::Snake(std::deque<Vector2> body, Color color, Vector2 direction)
 : body(body), color(color), direction(direction), addSegment(false)
 {}
-bool Snake::isInBody(Vector2 object) {}
+bool Snake::isInBody(Vector2 object) {
+    for (Vector2& part : body) {
+        if (Vector2Equals(part, object))
+            return true;
+    }
+    return false;
+}
+void Snake::addBodySegment() {
+    addSegment = true;
+}
 void Snake::fixedUpdate() {
     if (!addSegment)
         body.pop_back();
