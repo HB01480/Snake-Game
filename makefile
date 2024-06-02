@@ -18,7 +18,7 @@ CH = src/global.hh
 
 
 clean:
-	rm -rf *.o bin/SnakeGame-Debug.exe
+	rm -rf *.o $(BIN_DBG)
 
 debugPrecompile:
 	$(CC) $(DF) $(CH) -o $(PCH) $(INC)

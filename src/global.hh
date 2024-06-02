@@ -10,7 +10,7 @@
 // Application
 #define TITLE "Snake Game"
 #define TILE_SIZE 32
-#define TILE_COUNT_X 24
+#define TILE_COUNT_X 32
 #define TILE_COUNT_Y 16
 #define SC_WIDTH TILE_SIZE * TILE_COUNT_X
 #define SC_HEIGHT TILE_SIZE * TILE_COUNT_Y
@@ -29,6 +29,11 @@
 #define dt GetFrameTime()
 #define FIXED_UPDATE_INTERVAL 5.0 / 32.0
 #define FIXED_DELTA_TIME 1.0 / FIXED_UPDATE_INTERVAL
+
+
+// FileIO
+#define APP_PATH GetApplicationDirectory()
+#define SETTINGS_PATH TextFormat("%s%s", APP_PATH, "settings.ses")
 
 
 // Colors
