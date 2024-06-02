@@ -8,15 +8,13 @@ public:
 
     bool isInBody(Vector2 object, u16 startingIndex = 0);
     bool checkCollisionWalls();
-    void move();
+    void fixedMove();
     void input();
 
     Vector2 getHeadPosition() { return body[0]; }
     i32 getSize() { return body.size(); }
     void addBodySegment();
 
-    void fixedUpdate();
-    void update();
     void draw();
 
 private:

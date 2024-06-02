@@ -34,7 +34,7 @@ void Snake::addBodySegment() {
     addSegment = true;
 }
 
-void Snake::move() {
+void Snake::fixedMove() {
     if (!addSegment)
         body.pop_back();
 
@@ -49,16 +49,6 @@ void Snake::input() {
     direction = (IsKeyDown(KEY_D) && !Vector2Equals(direction, DIR_LEFT)) ? DIR_RIGHT : direction;
     direction = (IsKeyDown(KEY_W) && !Vector2Equals(direction, DIR_DOWN)) ? DIR_UP : direction;
     direction = (IsKeyDown(KEY_S) && !Vector2Equals(direction, DIR_UP)) ? DIR_DOWN : direction;
-
-}
-
-void Snake::fixedUpdate() {
-    move();
-
-}
-
-void Snake::update() {
-    input();
 
 }
 

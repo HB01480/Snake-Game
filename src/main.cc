@@ -4,6 +4,10 @@
 #include "snake/snake.hh"
 
 
+bool canExitGame(Snake snake);
+bool canEat(Snake snake, Food food);
+void respawnFood(Snake snake, Food food);
+
 i32 main() {
     // Initialization
     InitWindow(SC_WIDTH, SC_HEIGHT, TITLE);
@@ -21,23 +25,21 @@ i32 main() {
     while (!WindowShouldClose()) {
         // Updating
         fixedUpdateTimer += dt;
-        snake.update();
-        if (snake.checkCollisionWalls() || snake.isInBody(snake.getHeadPosition(), 1))
+        snake.input();
+
+        // Checks if can exit game
+        if (canExitGame(snake))
             break;
 
-        if (snake.isInBody(food.getPosition())) {
+        // Checks if snake can eat food
+        if (canEat(snake, food)) {
             snake.addBodySegment();
-            food.reset();
-            while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
-                food.reset();
+            respawnFood(snake, food);
         }
-
-        TraceLog(LOG_INFO, "x: %.2f, y: %.2f,", food.getPosition().x, food.getPosition().y);
-
+        
+        // Fixed updating
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
-            // Fixed updating
-            snake.fixedUpdate();
-
+            snake.fixedMove();
             fixedUpdateTimer = 0;
         }
 
@@ -58,4 +60,16 @@ i32 main() {
 
     return EXIT_SUCCESS;
 
+}
+
+
+bool canExitGame(Snake snake) {
+    return snake.checkCollisionWalls() || snake.isInBody(snake.getHeadPosition(), 1);
+}
+bool canEat(Snake snake, Food food) {
+    return snake.isInBody(food.getPosition());
+}
+void respawnFood(Snake snake, Food food) {
+    while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
+        food.reset();
 }
