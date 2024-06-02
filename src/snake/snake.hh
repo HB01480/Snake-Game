@@ -6,6 +6,7 @@ class Snake {
 public:
     Snake(std::deque<Vector2> body, Color color, Vector2 direction);
     bool isInBody(Vector2 object);
+    i32 getSize() { return body.size(); }
     void addBodySegment();
     void fixedUpdate();
     void update();

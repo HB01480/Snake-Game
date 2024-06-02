@@ -4,7 +4,7 @@
 #include "snake/snake.hh"
 
 
-int main() {
+i32 main() {
     // Initialization
     InitWindow(SC_WIDTH, SC_HEIGHT, TITLE);
     SetWindowState(FLAG_VSYNC_HINT);
