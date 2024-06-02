@@ -6,7 +6,7 @@ REL_DEF = -D SG_RELEASE
 DF = -g -Wall -m64 -std=c++23 $(DBG_DEF)
 RF = -O2 -m64 -std=c++23 $(REL_DEF)
 
-SRC = src/*.cc src/food/*.cc
+SRC = src/*.cc src/food/*.cc src/snake/*.cc
 INC = -Iinc
 LIB = -Llib -lraylibdll -lopengl32 -lgdi32 -lwinmm
 

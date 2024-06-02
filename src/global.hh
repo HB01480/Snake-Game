@@ -14,6 +14,14 @@
 #define SC_WIDTH TILE_SIZE * TILE_COUNT_X
 #define SC_HEIGHT TILE_SIZE * TILE_COUNT_Y
 
+// Gameplay
+// Direction
+#define DIR_NONE Vector2{0, 0}
+#define DIR_UP Vector2{-1, 0}
+#define DIR_DOWN Vector2{1, 0}
+#define DIR_LEFT Vector2{-1, 0}
+#define DIR_RIGHT Vector2{1, 0}
+
 // System
 #define dt GetFrameTime()
 #define FIXED_UPDATE_INTERVAL 1.0 / 4.0
