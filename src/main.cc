@@ -2,6 +2,7 @@
 
 #include "food/food.hh"
 #include "snake/snake.hh"
+#include "fileIO/fileIO.hh"
 
 
 bool canExitGame(Snake snake) {
