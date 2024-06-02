@@ -8,6 +8,7 @@ int main() {
     // Initialization
     InitWindow(SC_WIDTH, SC_HEIGHT, TITLE);
     SetWindowState(FLAG_VSYNC_HINT);
+    f32 fixedUpdateTimer = 0;
 
     // Game initialization
     Food food{3, 5, FOOD_COLOR};
@@ -19,7 +20,16 @@ int main() {
     // Game loop
     while (!WindowShouldClose()) {
         // Updating
+        fixedUpdateTimer += dt;
         snake.update();
+
+        if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
+            // Fixed updating
+            snake.fixedUpdate();
+
+            fixedUpdateTimer = 0;
+        }
+
 
         // Drawing
         BeginDrawing();
