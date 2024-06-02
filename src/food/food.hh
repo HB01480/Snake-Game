@@ -5,7 +5,9 @@
 class Food {
 public:
     Food(f32 x, f32 y, Color color);
+
     Vector2 getPosition() { return position; }
+
     void reset();
     void draw();
 

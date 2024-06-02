@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <deque>
 
+
 // Application
 #define TITLE "Snake Game"
 #define TILE_SIZE 32
@@ -15,23 +16,26 @@
 #define SC_HEIGHT TILE_SIZE * TILE_COUNT_Y
 #define TILE_AREA TILE_COUNT_X * TILE_COUNT_Y
 
+
 // Gameplay
-// Direction
 #define DIR_NONE Vector2{0, 0}
 #define DIR_UP Vector2{0, -1}
 #define DIR_DOWN Vector2{0, 1}
 #define DIR_LEFT Vector2{-1, 0}
 #define DIR_RIGHT Vector2{1, 0}
 
+
 // System
 #define dt GetFrameTime()
 #define FIXED_UPDATE_INTERVAL 1.0 / 4.0
 #define FIXED_DELTA_TIME 1.0 / FIXED_UPDATE_INTERVAL
 
+
 // Colors
 #define SNAKE_COLOR Color{64, 224, 64, 255}
 #define FOOD_COLOR Color{224, 224, 64, 255}
 #define BG_COLOR Color{32, 32, 64}
+
 
 // Type definition
 typedef uint8_t u8;

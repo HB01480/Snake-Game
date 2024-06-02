@@ -6,6 +6,7 @@
 Snake::Snake(std::deque<Vector2> body, Color color, Vector2 direction)
 : body(body), color(color), direction(direction), addSegment(false)
 {}
+
 bool Snake::isInBody(Vector2 object) {
     for (Vector2& part : body) {
         if (Vector2Equals(part, object))
@@ -13,6 +14,7 @@ bool Snake::isInBody(Vector2 object) {
     }
     return false;
 }
+
 bool Snake::checkCollisionWalls() {
     if (body[0].x > TILE_COUNT_X - 1)
         return true;
@@ -26,9 +28,11 @@ bool Snake::checkCollisionWalls() {
 
     return false;
 }
+
 void Snake::addBodySegment() {
     addSegment = true;
 }
+
 void Snake::fixedUpdate() {
     if (!addSegment)
         body.pop_back();
@@ -38,6 +42,7 @@ void Snake::fixedUpdate() {
     addSegment = false;
 
 }
+
 void Snake::update() {
     direction = (IsKeyDown(KEY_A) && !Vector2Equals(direction, DIR_RIGHT)) ? DIR_LEFT : direction;
     direction = (IsKeyDown(KEY_D) && !Vector2Equals(direction, DIR_LEFT)) ? DIR_RIGHT : direction;
@@ -45,6 +50,7 @@ void Snake::update() {
     direction = (IsKeyDown(KEY_S) && !Vector2Equals(direction, DIR_UP)) ? DIR_DOWN : direction;
 
 }
+
 void Snake::draw() {
     for (Vector2& part : body) {
         Vector2 scaled = Vector2Scale(part, TILE_SIZE);
