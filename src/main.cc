@@ -22,7 +22,7 @@ i32 main() {
         // Updating
         fixedUpdateTimer += dt;
         snake.update();
-        if (snake.checkCollisionWalls())
+        if (snake.checkCollisionWalls() || snake.isInBody(snake.getHeadPosition(), 1))
             break;
 
         if (snake.isInBody(food.getPosition())) {
@@ -32,6 +32,7 @@ i32 main() {
                 food.reset();
         }
 
+        TraceLog(LOG_INFO, "x: %.2f, y: %.2f,", food.getPosition().x, food.getPosition().y);
 
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
             // Fixed updating
