@@ -10,15 +10,15 @@ SRC = src/*.cc src/food/*.cc
 INC = -Iinc
 LIB = -Llib -lraylibdll -lopengl32 -lgdi32 -lwinmm
 
-BIN_REL = bin/PongGame-Release.exe
-BIN_DBG = bin/PongGame.exe
+BIN_REL = bin/PongGame.exe
+BIN_DBG = bin/PongGame-Debug.exe
 
 PCH = src/global.hh.pch
 CH = src/global.hh
 
 
 clean:
-	rm -rf *.o
+	rm -rf *.o bin/PongGame-Debug.exe
 
 debugPrecompile:
 	$(CC) $(DF) $(CH) -o $(PCH) $(INC)
