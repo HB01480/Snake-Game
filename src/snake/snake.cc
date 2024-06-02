@@ -7,8 +7,9 @@ Snake::Snake(std::deque<Vector2> body, Color color, Vector2 direction)
 : body(body), color(color), direction(direction), addSegment(false)
 {}
 
-bool Snake::isInBody(Vector2 object) {
-    for (Vector2& part : body) {
+bool Snake::isInBody(Vector2 object, u16 startingIndex) {
+    for (u16 i = startingIndex; i < body.size(); i++) {
+        Vector2& part = body[i];
         if (Vector2Equals(part, object))
             return true;
     }
@@ -33,7 +34,7 @@ void Snake::addBodySegment() {
     addSegment = true;
 }
 
-void Snake::fixedUpdate() {
+void Snake::move() {
     if (!addSegment)
         body.pop_back();
 
@@ -43,11 +44,21 @@ void Snake::fixedUpdate() {
 
 }
 
-void Snake::update() {
+void Snake::input() {
     direction = (IsKeyDown(KEY_A) && !Vector2Equals(direction, DIR_RIGHT)) ? DIR_LEFT : direction;
     direction = (IsKeyDown(KEY_D) && !Vector2Equals(direction, DIR_LEFT)) ? DIR_RIGHT : direction;
     direction = (IsKeyDown(KEY_W) && !Vector2Equals(direction, DIR_DOWN)) ? DIR_UP : direction;
     direction = (IsKeyDown(KEY_S) && !Vector2Equals(direction, DIR_UP)) ? DIR_DOWN : direction;
+
+}
+
+void Snake::fixedUpdate() {
+    move();
+
+}
+
+void Snake::update() {
+    input();
 
 }
 

@@ -5,9 +5,13 @@
 class Snake {
 public:
     Snake(std::deque<Vector2> body, Color color, Vector2 direction);
-    bool isInBody(Vector2 object);
-    bool checkCollisionWalls();
 
+    bool isInBody(Vector2 object, u16 startingIndex = 0);
+    bool checkCollisionWalls();
+    void move();
+    void input();
+
+    Vector2 getHeadPosition() { return body[0]; }
     i32 getSize() { return body.size(); }
     void addBodySegment();
 
