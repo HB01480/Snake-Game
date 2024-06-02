@@ -27,7 +27,7 @@
 
 // System
 #define dt GetFrameTime()
-#define FIXED_UPDATE_INTERVAL 1.0 / 4.0
+#define FIXED_UPDATE_INTERVAL 5.0 / 32.0
 #define FIXED_DELTA_TIME 1.0 / FIXED_UPDATE_INTERVAL
 
 

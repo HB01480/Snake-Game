@@ -40,8 +40,6 @@ i32 main() {
                 food.reset();
         }
 
-        TraceLog(LOG_INFO, "x: %.2f, y: %.2f,", food.getPosition().x, food.getPosition().y);
-
         if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
             // Fixed updating
             snake.fixedMove();
