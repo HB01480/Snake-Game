@@ -25,7 +25,7 @@ i32 main() {
         if (snake.isInBody(food.getPosition())) {
             snake.addBodySegment();
             food.reset();
-            if (snake.isInBody(food.getPosition()))
+            while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
                 food.reset();
         }
 
