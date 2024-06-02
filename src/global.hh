@@ -17,8 +17,8 @@
 // Gameplay
 // Direction
 #define DIR_NONE Vector2{0, 0}
-#define DIR_UP Vector2{-1, 0}
-#define DIR_DOWN Vector2{1, 0}
+#define DIR_UP Vector2{0, -1}
+#define DIR_DOWN Vector2{0, 1}
 #define DIR_LEFT Vector2{-1, 0}
 #define DIR_RIGHT Vector2{1, 0}
 

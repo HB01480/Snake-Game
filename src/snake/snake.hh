@@ -14,5 +14,6 @@ private:
     std::deque<Vector2> body;
     Color color;
     Vector2 direction;
+    bool addSegment;
 
 };
