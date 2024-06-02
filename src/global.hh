@@ -2,6 +2,7 @@
 #include <raylib.h>
 #include <raymath.h>
 
+#include <iostream>
 #include <cstdbool>
 #include <cstdint>
 #include <deque>
