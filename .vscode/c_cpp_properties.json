@@ -5,6 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/inc"
             ],
+            "defines": [
+                "SG_RELEASE",
+                "SG_DEBUG"
+            ],
             "compilerPath": "E:\\program files\\LLVM MinGW x64\\bin\\clang++.exe",
             "cppStandard": "c++23",
             "intelliSenseMode": "windows-clang-x64"
