@@ -22,6 +22,9 @@ i32 main() {
         // Updating
         fixedUpdateTimer += dt;
         snake.update();
+        if (snake.checkCollisionWalls())
+            break;
+
         if (snake.isInBody(food.getPosition())) {
             snake.addBodySegment();
             food.reset();

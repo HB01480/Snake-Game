@@ -18,7 +18,7 @@ CH = src/global.hh
 
 
 clean:
-	rm -rf *.o bin/PongGame-Debug.exe
+	rm -rf *.o bin/SnakeGame-Debug.exe
 
 debugPrecompile:
 	$(CC) $(DF) $(CH) -o $(PCH) $(INC)

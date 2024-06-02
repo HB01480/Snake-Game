@@ -13,6 +13,19 @@ bool Snake::isInBody(Vector2 object) {
     }
     return false;
 }
+bool Snake::checkCollisionWalls() {
+    if (body[0].x > TILE_COUNT_X - 1)
+        return true;
+    if (body[0].x < 0)
+        return true;
+
+    if (body[0].y > TILE_COUNT_Y - 1)
+        return true;
+    if (body[0].y < 0)
+        return true;
+
+    return false;
+}
 void Snake::addBodySegment() {
     addSegment = true;
 }
