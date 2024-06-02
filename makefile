@@ -39,7 +39,7 @@ releasePrecompile:
 
 releaseCompile:
 	$(CC) $(RF) -c $(SRC) $(INC)
-	$(CC) $(RF) *.o -o $(BIN_REL) $(LIB)
+	$(CC) $(RF) *.o -s -o $(BIN_REL) $(LIB)
 	$(BIN_REL)
 	make clean
 
