@@ -24,7 +24,7 @@ debugPrecompile:
 	$(CC) $(DF) $(CH) -o $(PCH) $(INC)
 
 debugCompile:
-	$(CC) $(DF) -c $(SRC) $(INC)
+	$(CC) $(DF) -c $(SRC) -include-pch $(PCH) $(INC)
 	$(CC) $(DF) *.o -o $(BIN_DBG) $(LIB)
 	$(BIN_DBG)
 	make clean
@@ -38,7 +38,7 @@ releasePrecompile:
 	$(CC) $(RF) $(CH) -o $(PCH) $(INC)
 
 releaseCompile:
-	$(CC) $(RF) -c $(SRC) $(INC)
+	$(CC) $(RF) -c $(SRC) -include-pch $(PCH) $(INC)
 	$(CC) $(RF) -Wl,--subsystem,windows *.o -s -o $(BIN_REL) $(LIB)
 	$(BIN_REL)
 	make clean
