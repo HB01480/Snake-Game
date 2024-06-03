@@ -18,21 +18,21 @@ i32 main() {
     #ifdef SG_RELEASE
     SetTraceLogLevel(LOG_ERROR); // To get rid of INFO
     #endif
-    InitWindow(SC_WIDTH, SC_HEIGHT, TITLE);
+    InitWindow(settings.screenWidth, settings.screenHeight, settings.title);
     SetWindowState(FLAG_VSYNC_HINT);
     f32 fixedUpdateTimer = 0;
 
     // Game initialization
-    Food food{3, 5, FOOD_COLOR};
+    Food food{3, 5, settings.foodColor};
     Snake snake{
         { {9, 7}, {9, 8}, {9, 9}, {10, 9} },
-        SNAKE_COLOR, DIR_UP
+        settings.snakeColor, settings.directionUP
     };
 
     // Game loop
     while (!WindowShouldClose()) {
         // Updating
-        fixedUpdateTimer += dt;
+        fixedUpdateTimer += GetFrameTime();
         snake.input();
 
         // Checks if can exit
@@ -44,7 +44,7 @@ i32 main() {
             snake.addBodySegment();
     
             // Make sure that food doesn't spawn on snake
-            while (snake.isInBody(food.getPosition()) && snake.getSize() < TILE_AREA)
+            while (snake.isInBody(food.getPosition()) && snake.getSize() < settings.tileArea)
                 food.reset();
         }
         #ifdef SG_DEBUG
@@ -56,7 +56,7 @@ i32 main() {
         #endif
 
         // Fixed updating
-        if (fixedUpdateTimer >= FIXED_UPDATE_INTERVAL) {
+        if (fixedUpdateTimer >= settings.fixedUpdateInterval) {
             snake.fixedMove();
 
             fixedUpdateTimer = 0;
@@ -66,7 +66,7 @@ i32 main() {
         // Drawing
         BeginDrawing();
 
-        ClearBackground(BG_COLOR);
+        ClearBackground(settings.backgroundColor);
         
         food.draw();
         snake.draw();

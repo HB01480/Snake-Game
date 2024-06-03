@@ -17,12 +17,12 @@ bool Snake::isInBody(Vector2 object, u16 startingIndex) {
 }
 
 bool Snake::checkCollisionWalls() {
-    if (body[0].x > TILE_COUNT_X - 1)
+    if (body[0].x > settings.tileCountX - 1)
         return true;
     if (body[0].x < 0)
         return true;
 
-    if (body[0].y > TILE_COUNT_Y - 1)
+    if (body[0].y > settings.tileCountY - 1)
         return true;
     if (body[0].y < 0)
         return true;
@@ -45,17 +45,17 @@ void Snake::fixedMove() {
 }
 
 void Snake::input() {
-    direction = (IsKeyDown(KEY_A) && !Vector2Equals(direction, DIR_RIGHT)) ? DIR_LEFT : direction;
-    direction = (IsKeyDown(KEY_D) && !Vector2Equals(direction, DIR_LEFT)) ? DIR_RIGHT : direction;
-    direction = (IsKeyDown(KEY_W) && !Vector2Equals(direction, DIR_DOWN)) ? DIR_UP : direction;
-    direction = (IsKeyDown(KEY_S) && !Vector2Equals(direction, DIR_UP)) ? DIR_DOWN : direction;
+    direction = (IsKeyDown(KEY_A) && !Vector2Equals(direction, settings.directionRIGHT)) ? settings.directionLEFT : direction;
+    direction = (IsKeyDown(KEY_D) && !Vector2Equals(direction, settings.directionLEFT)) ? settings.directionRIGHT : direction;
+    direction = (IsKeyDown(KEY_W) && !Vector2Equals(direction, settings.directionDOWN)) ? settings.directionUP : direction;
+    direction = (IsKeyDown(KEY_S) && !Vector2Equals(direction, settings.directionUP)) ? settings.directionDOWN : direction;
 
 }
 
 void Snake::draw() {
     for (Vector2& part : body) {
-        Vector2 scaled = Vector2Scale(part, TILE_SIZE);
-        DrawRectangleV(scaled, Vector2{TILE_SIZE, TILE_SIZE}, color);
+        Vector2 scaled = Vector2Scale(part, settings.tileSize);
+        DrawRectangleV(scaled, Vector2{(f32)settings.tileSize, (f32)settings.tileSize}, color);
     }
 
 }
