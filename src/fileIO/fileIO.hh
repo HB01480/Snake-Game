@@ -19,5 +19,3 @@ private:
     u64 size;
 
 };
-
-SettingsData loadSettingsData(c_string filePath);
