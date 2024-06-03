@@ -1,7 +1,7 @@
-#pragma once once
 #include <raylib.h>
 #include <raymath.h>
 
+#include "settings.hh"
 #include "fileIO/settingsData.hh"
 #include "types.hh"
 
