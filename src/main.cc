@@ -21,6 +21,7 @@ i32 main() {
     InitWindow(settings.screenWidth, settings.screenHeight, settings.title);
     SetWindowState(FLAG_VSYNC_HINT);
     f32 fixedUpdateTimer = 0;
+    u32 score = 0;
 
     // Game initialization
     Food food{3, 5, settings.foodColor};
@@ -29,10 +30,12 @@ i32 main() {
         settings.snakeColor, settings.directionUP
     };
 
+    i32 initialSnakeSize = snake.getSize();
     // Game loop
     while (!WindowShouldClose()) {
         // Updating
         fixedUpdateTimer += GetFrameTime();
+        score = snake.getSize() - initialSnakeSize;
         snake.input();
 
         // Checks if can exit
@@ -67,7 +70,13 @@ i32 main() {
         BeginDrawing();
 
         ClearBackground(settings.backgroundColor);
-        
+        DrawText(
+            TextFormat("%i", score), 
+            settings.screenWidth * 1/2 - MeasureText(TextFormat("%i", score), 48) * 1/2,
+            settings.screenHeight * 1/16 - 24,
+            48, RAYWHITE
+        );
+
         food.draw();
         snake.draw();
 
