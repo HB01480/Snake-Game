@@ -15,3 +15,12 @@ std::ostream& operator<<(std::ostream& os, const SizedString& ss)
     os << ss.str;
     return os;
 }
+
+SettingsData loadSettingsData(c_string filePath) {
+    c_string fileData = LoadFileText(filePath);
+    SettingsData data;
+
+    // TODO: Implement this.
+    
+    return data;
+}

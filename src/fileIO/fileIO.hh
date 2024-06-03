@@ -9,6 +9,8 @@ public:
 
     u64 getSize() { return size; }
 
+
+
     // first time using the 'friend' keyword in C++
     friend std::ostream& operator<<(std::ostream& os, const SizedString& ss);
 
@@ -17,3 +19,5 @@ private:
     u64 size;
 
 };
+
+SettingsData loadSettingsData(c_string filePath);
